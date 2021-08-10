@@ -1,12 +1,12 @@
 import React from 'react';
 
-const Scanner = () => {
+const Scanner = ({scanned}) => {
     return (
       <div className="scanner">
         <div className="scanner-container">
           <div className="scanner-image" />
           <div className="scanner-text">
-            Scanner
+            {scanned}
           </div>
         </div>
       </div>
