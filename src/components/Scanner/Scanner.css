@@ -1,0 +1,28 @@
+.scanner {
+  position: absolute;
+  z-index: 1;
+  top: calc(50vh - 150px);
+  border-radius: 15px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.scanner-exit {
+  text-align: right;
+  padding-right: 16px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.scanner-container {
+  height: 300px;
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.scanner-image {
+  height: 20vmin;
+}

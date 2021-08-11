@@ -1,4 +1,4 @@
-import logo from './logo.png';
+import nfc from './nfc.svg';
 import './App.css';
 import Scan from './containers/Scan';
 import Write from './containers/Write';
@@ -8,19 +8,19 @@ function App() {
   const [isScan, setScan] = useState(false);
   const [isWrite, setWrite] = useState(false);
 
-  const onHandleScan =()=>{
-    setScan(!isScan);
+  const onHandleScan = () =>{
+    setScan(true);
     setWrite(false)
   }
 
-  const onHandleWrite =()=>{
+  const onHandleWrite = () =>{
     setScan(false);
-    setWrite(!isWrite)
+    setWrite(true)
   }
 
   return (
     <div className="App">
-      <img src={logo} className="App-logo" alt="logo" />
+      <img src={nfc} className="App-logo" alt="logo" />
       <h1>NFC Tool</h1>
       <div className="App-container">
         <button onClick={onHandleScan} className="App-button">Scan</button>

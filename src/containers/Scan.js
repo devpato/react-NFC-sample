@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import Scanner from '../components/Scanner/Scanner';
 
 const Scan = () => {
-    const [isScanned, setiSScanned] = useState('Scanning...');
+    const [status, setStatus] = useState('scanning');
     const [message, setMessage] = useState('');
     const [serialNumber, setSerialNumber] = useState('');
 
-    const scan = () => {
+    const scan = useCallback(async() => {
         if ('NDEFReader' in window) { 
-            const ndef = new window.NDEFReader();
-            
-            ndef.scan().then(() => {
+            try {
+                const ndef = new window.NDEFReader();
+                await ndef.scan();
+                
                 console.log("Scan started successfully.");
                 ndef.onreadingerror = () => {
                     console.log("Cannot read data from the NFC tag. Try another one?");
@@ -19,20 +20,18 @@ const Scan = () => {
                 ndef.onreading = event => {
                     console.log("NDEF message read.");
                     onReading(event);
-                    setiSScanned('Scanned');
+                    setStatus('scanned');
                 };
-            }).catch(error => {
+
+            } catch(error){
                 console.log(`Error! Scan failed to start: ${error}.`);
-            });
+            };
         }
-    }
+    },[]);
 
     const onReading = ({message, serialNumber}) => {
         setSerialNumber(serialNumber);
         for (const record of message.records) {
-            console.log("Record type:  " + record.recordType);
-            console.log("MIME type:    " + record.mediaType);
-            console.log("Record id:    " + record.id);
             switch (record.recordType) {
                 case "text":
                     const textDecoder = new TextDecoder(record.encoding);
@@ -47,12 +46,19 @@ const Scan = () => {
         }
     };
 
-    scan();
-    return (
+    useEffect(() => {
+        scan();
+    }, [scan]);
+
+
+    return(
         <>
-            <p>Serial Number: {serialNumber}</p>
-            <p>Message: {message}</p>
-            <Scanner scanned={isScanned}></Scanner>
+            {status === 'scanned' ?  
+            <div>
+                <p>Serial Number: {serialNumber}</p>
+                <p>Message: {message}</p>
+            </div>
+            : <Scanner status={status}></Scanner> }
         </>
     );
 };

@@ -1,29 +1,21 @@
-import React from 'react';
+import React, { useCallback, useEffect } from 'react';
 
 const Write = () => {
 
-    const onWrite = async() => {
-        const abortController = new AbortController();
-        abortController.signal.onabort = event => {
-            alert('STOP');
-        };
+    const onWrite = useCallback(async() => {
         try {
             const ndef = new window.NDEFReader();
-            await ndef.write(
-                {
-                    records: [{ recordType: "text", data: "17" }]
-                },
-                {signal: abortController.signal}
-            );
-            alert(`${16} saved!`);
-            abortController.abort();
+            await ndef.write({records: [{ recordType: "text", data: "18" }]});
+            alert(`${18} saved!`);
         } catch (error) {
             console.log(error);
-            abortController.abort();
         }
-    };
+    }, []);
 
-    onWrite();
+    useEffect(() => {
+        onWrite();
+    }, [onWrite])
+
     return (
       "Write"
     );

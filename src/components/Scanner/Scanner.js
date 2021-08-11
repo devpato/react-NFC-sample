@@ -1,13 +1,16 @@
 import React from 'react';
+import './Scanner.css'
+import Spinner from '../../spinner.gif';
 
-const Scanner = ({scanned}) => {
+const Scanner = ({status}) => {
     return (
       <div className="scanner">
+        <p className="scanner-exit">X</p>
         <div className="scanner-container">
-          <div className="scanner-image" />
-          <div className="scanner-text">
-            {scanned}
-          </div>
+          <img src={Spinner} alt="spinning log" className="scanner-image"/>
+          <p className="scanner-text">
+            Scanning...
+          </p>
         </div>
       </div>
     );

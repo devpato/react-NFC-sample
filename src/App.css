@@ -1,4 +1,5 @@
 .App {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -28,6 +29,6 @@
 }
 
 .App-logo {
-  height: 10vmin;
+  height: 20vmin;
   pointer-events: none;
 }
