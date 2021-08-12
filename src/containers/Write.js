@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect } from 'react';
 
 const Write = () => {
-
     const onWrite = useCallback(async() => {
         try {
             const ndef = new window.NDEFReader();
@@ -17,7 +16,7 @@ const Write = () => {
     }, [onWrite])
 
     return (
-      "Write"
+      <></>
     );
 };
 

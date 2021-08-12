@@ -1,10 +1,12 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import Scanner from '../components/Scanner/Scanner';
+import { ActionsContext } from '../contexts/context';
 
 const Scan = () => {
-    const [status, setStatus] = useState('scanning');
+    // const [status, setStatus] = useState('scanning');
     const [message, setMessage] = useState('');
     const [serialNumber, setSerialNumber] = useState('');
+    const { actions, setActions} = useContext(ActionsContext);
 
     const scan = useCallback(async() => {
         if ('NDEFReader' in window) { 
@@ -20,14 +22,17 @@ const Scan = () => {
                 ndef.onreading = event => {
                     console.log("NDEF message read.");
                     onReading(event);
-                    setStatus('scanned');
+                    setActions({
+                        scan: 'scanned',
+                        write: null
+                    });
                 };
 
             } catch(error){
                 console.log(`Error! Scan failed to start: ${error}.`);
             };
         }
-    },[]);
+    },[setActions]);
 
     const onReading = ({message, serialNumber}) => {
         setSerialNumber(serialNumber);
@@ -50,15 +55,14 @@ const Scan = () => {
         scan();
     }, [scan]);
 
-
     return(
         <>
-            {status === 'scanned' ?  
+            {actions.scan === 'scanned' ?  
             <div>
                 <p>Serial Number: {serialNumber}</p>
                 <p>Message: {message}</p>
             </div>
-            : <Scanner status={status}></Scanner> }
+            : <Scanner status={actions.scan}></Scanner> }
         </>
     );
 };

@@ -1,7 +1,7 @@
 .scanner {
   position: absolute;
   z-index: 1;
-  top: calc(50vh - 150px);
+  top: calc(50vh - 175px);
   border-radius: 15px;
   background-color: #fff;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
