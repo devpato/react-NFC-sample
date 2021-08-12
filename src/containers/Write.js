@@ -4,8 +4,8 @@ const Write = () => {
     const onWrite = useCallback(async() => {
         try {
             const ndef = new window.NDEFReader();
-            await ndef.write({records: [{ recordType: "text", data: "18" }]});
-            alert(`${18} saved!`);
+            await ndef.write({records: [{ recordType: "text", data: "Hello World!" }]});
+            alert(`Value Saved!`);
         } catch (error) {
             console.log(error);
         }
