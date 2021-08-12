@@ -3,7 +3,6 @@ import Scanner from '../components/Scanner/Scanner';
 import { ActionsContext } from '../contexts/context';
 
 const Scan = () => {
-    // const [status, setStatus] = useState('scanning');
     const [message, setMessage] = useState('');
     const [serialNumber, setSerialNumber] = useState('');
     const { actions, setActions} = useContext(ActionsContext);
