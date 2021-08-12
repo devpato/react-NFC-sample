@@ -31,7 +31,7 @@ NFCs can have multiple usages, some of the usages are:
 - Making contactless payments like Google and Apple Pay
 - Opening a door using your badge
 - Opening a link
-- Produc control in a warehouse
+- Product control in a warehouse
 
 To learn about the usages visit [this forum](https://nfc-forum.org/what-is-nfc/).
 
