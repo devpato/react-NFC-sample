@@ -2,13 +2,17 @@
 
 ## About
 
-This is a simple sample app demostrating the usage of the [Web NFC API](https://w3c.github.io/web-nfc/). To get the Web NFC API working you will need an Android Device with Google Chrome and you web app will need to be hosted using https.
+This is a simple sample app demostrating the usage of the [Web NFC API](https://w3c.github.io/web-nfc/).
+
+**To get the Web NFC API working you will need an Android Device with Google Chrome and your web app will need to be hosted using https.**
 
 This is the [sample app](https://react-nfc-90146.web.app/) in action.
 
 ![alt nfc tag](scs.png)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+If you want to see an Angular app using NFCs look at this video[example](https://twitter.com/manekinekko/status/1424697070015991808) and visit [this repo](https://github.com/manekinekko/puzzle-duo-nfc) by the awesome [Wassim](https://twitter.com/manekinekko). Thanks to him I was introduced to the Web NFC API.
 
 ### WTF is NFC?
 
