@@ -5,8 +5,8 @@ const Write = () => {
     const onWrite = async(message) => {
         try {
             const ndef = new window.NDEFReader();
-            await ndef.write({records: [{ recordType: "text", data: "Hello World!" }]});
-            console.log(`Value Saved!`);
+            await ndef.write({records: [{ recordType: "text", data: message }]});
+            alert(`Value Saved!`);
         } catch (error) {
             console.log(error);
         }

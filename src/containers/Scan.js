@@ -8,6 +8,7 @@ const Scan = () => {
     const { actions, setActions} = useContext(ActionsContext);
 
     const scan = useCallback(async() => {
+
         if ('NDEFReader' in window) { 
             try {
                 const ndef = new window.NDEFReader();
