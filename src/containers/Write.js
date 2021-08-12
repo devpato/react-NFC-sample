@@ -1,7 +1,9 @@
-import React, { useCallback, useEffect } from 'react';
+import React from 'react';
+import Writer from '../components/Writer/Writer';
 
 const Write = () => {
-    const onWrite = useCallback(async() => {
+    const onWrite = async(message) => {
+        console.log('write', message);
         try {
             const ndef = new window.NDEFReader();
             await ndef.write({records: [{ recordType: "text", data: "Hello World!" }]});
@@ -9,14 +11,10 @@ const Write = () => {
         } catch (error) {
             console.log(error);
         }
-    }, []);
-
-    useEffect(() => {
-        onWrite();
-    }, [onWrite])
+    }
 
     return (
-      <></>
+      <Writer writeFn={onWrite}/>
     );
 };
 
