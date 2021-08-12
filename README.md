@@ -46,7 +46,7 @@ This project uses 4 methods of the Web NFC API
 4. Write: Returns a Promise resolved if writing the message (String, ArrayBuffer or NDEF record) with options was successful.
    `ndef.write()`
 
-## Using the methods
+## Using the Web NFC API methods
 
 ### Scan, Reading, Reading Error
 
@@ -89,7 +89,7 @@ const onReading = ({message, serialNumber}) => {
                 break;
             default:
                 // TODO: Handle other records with record data.
-            }
+        }
     }
 };
 ```
