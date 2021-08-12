@@ -6,13 +6,17 @@ This is a simple sample app demostrating the usage of the [Web NFC API](https://
 
 This is the [sample app](https://react-nfc-90146.web.app/) in action.
 
+![alt nfc tag](scs.png)
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
 ### WTF is NFC?
 
 NFC stands for **_Near-Field Communication_**. NFC is a set of communication protocols for communication between two electronic devices.
 
 Electromagnetic fields can be used to transmit data or induce electrical currents in a receiving device. Passive NFC devices draw power from the fields produced by active devices, but the range is short.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![alt NFC Tag](nfc.jpg)
 
 You can buy NFC Tags on [Amazon](https://www.amazon.com/gp/product/B0727NYX3B/ref=ppx_yo_dt_b_asin_title_o01_s00?ie=UTF8&psc=1). These tags can contain up to 540KB of info.
 
@@ -59,12 +63,12 @@ const scan = async() =>
 
             console.log("Scan started successfully.");
             ndef.onreadingerror = () => {
-            console.log("Cannot read data from the NFC tag. Try another one?");
+                console.log("Cannot read data from the NFC tag. Try another one?");
             };
 
             ndef.onreading = (event) => {
-            console.log("NDEF message read.");
-            onReading(event); //Find function below
+                console.log("NDEF message read.");
+                onReading(event); //Find function below
             };
         } catch (error) {
             console.log(`Error! Scan failed to start: ${error}.`);
