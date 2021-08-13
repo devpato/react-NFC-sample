@@ -3,7 +3,7 @@ import './Scanner.css'
 import Spinner from '../../spinner.gif';
 import { ActionsContext } from '../../contexts/context';
 
-const Scanner = ({status}) => {
+const Scanner = () => {
   const { actions, setActions} = useContext(ActionsContext);
     return (
       <div className="scanner">
