@@ -22,7 +22,7 @@ Electromagnetic fields can be used to transmit data or induce electrical current
 
 ![alt NFC Tag](nfc.jpg)
 
-You can buy NFC Tags on [Amazon](https://www.amazon.com/gp/product/B0727NYX3B/ref=ppx_yo_dt_b_asin_title_o01_s00?ie=UTF8&psc=1). These tags can contain up to 540KB of info.
+You can buy NFC Tags on [Amazon](https://www.amazon.com/gp/product/B0727NYX3B/ref=ppx_yo_dt_b_asin_title_o01_s00?ie=UTF8&psc=1). These tags can contain 540KB of data.
 
 ## Usages
 
